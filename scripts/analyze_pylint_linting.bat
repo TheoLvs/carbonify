@@ -1,0 +1,5 @@
+cd ..
+
+pylint carbonify
+
+pause

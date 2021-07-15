@@ -1,0 +1,409 @@
+{
+  "type": "object",
+  "properties": {
+    "Type_Ligne": {
+      "x-originalName": "Type Ligne",
+      "type": "string",
+      "x-cardinality": 2,
+      "x-refersTo": null
+    },
+    "Identifiant_de_l'élément": {
+      "x-originalName": "Identifiant de l'élément",
+      "type": "string",
+      "x-cardinality": 9305,
+      "x-refersTo": "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "Structure": {
+      "x-originalName": "Structure",
+      "type": "string",
+      "x-cardinality": 4,
+      "x-refersTo": null
+    },
+    "Type_de_l'élément": {
+      "x-originalName": "Type de l'élément",
+      "type": "string",
+      "x-cardinality": 2,
+      "x-refersTo": null
+    },
+    "Statut_de_l'élément": {
+      "x-originalName": "Statut de l'élément",
+      "type": "string",
+      "x-cardinality": 7,
+      "x-refersTo": null
+    },
+    "Nom_base_français": {
+      "x-originalName": "Nom base français",
+      "type": "string",
+      "x-cardinality": 2274,
+      "x-refersTo": "http://schema.org/description"
+    },
+    "Nom_base_anglais": {
+      "x-originalName": "Nom base anglais",
+      "type": "string",
+      "x-cardinality": 2042,
+      "x-refersTo": null
+    },
+    "Nom_base_espagnol": {
+      "x-originalName": "Nom base espagnol",
+      "type": "string",
+      "x-cardinality": 31,
+      "x-refersTo": null
+    },
+    "Nom_attribut_français": {
+      "x-originalName": "Nom attribut français",
+      "type": "string",
+      "x-cardinality": 2758,
+      "x-refersTo": null
+    },
+    "Nom_attribut_anglais": {
+      "x-originalName": "Nom attribut anglais",
+      "type": "string",
+      "x-cardinality": 2693,
+      "x-refersTo": null
+    },
+    "Nom_attribut_espagnol": {
+      "x-originalName": "Nom attribut espagnol",
+      "type": "string",
+      "x-cardinality": 3,
+      "x-refersTo": null
+    },
+    "Nom_frontière_français": {
+      "x-originalName": "Nom frontière français",
+      "type": "string",
+      "x-cardinality": 413,
+      "x-refersTo": null
+    },
+    "Nom_frontière_anglais": {
+      "x-originalName": "Nom frontière anglais",
+      "type": "string",
+      "x-cardinality": 199,
+      "x-refersTo": null
+    },
+    "Nom_frontière_espagnol": {
+      "x-originalName": "Nom frontière espagnol",
+      "type": "string",
+      "x-cardinality": 0,
+      "x-refersTo": null
+    },
+    "Code_de_la_catégorie": {
+      "x-originalName": "Code de la catégorie",
+      "type": "string",
+      "x-cardinality": 397,
+      "x-refersTo": null
+    },
+    "Tags_français": {
+      "x-originalName": "Tags français",
+      "type": "string",
+      "x-cardinality": 4185,
+      "x-refersTo": null
+    },
+    "Tags_anglais": {
+      "x-originalName": "Tags anglais",
+      "type": "string",
+      "x-cardinality": 3138,
+      "x-refersTo": null
+    },
+    "Tags_espagnol": {
+      "x-originalName": "Tags espagnol",
+      "type": "string",
+      "x-cardinality": 1,
+      "x-refersTo": null
+    },
+    "Unité_français": {
+      "x-originalName": "Unité français",
+      "type": "string",
+      "x-cardinality": 138,
+      "x-refersTo": null
+    },
+    "Unité_anglais": {
+      "x-originalName": "Unité anglais",
+      "type": "string",
+      "x-cardinality": 120,
+      "x-refersTo": null
+    },
+    "Unité_espagnol": {
+      "x-originalName": "Unité espagnol",
+      "type": "string",
+      "x-cardinality": 0,
+      "x-refersTo": null
+    },
+    "Contributeur": {
+      "x-originalName": "Contributeur",
+      "type": "string",
+      "x-cardinality": 23,
+      "x-refersTo": null
+    },
+    "Autres_Contributeurs": {
+      "x-originalName": "Autres Contributeurs",
+      "type": "string",
+      "x-cardinality": 3,
+      "x-refersTo": null
+    },
+    "Programme": {
+      "x-originalName": "Programme",
+      "type": "string",
+      "x-cardinality": 18,
+      "x-refersTo": null
+    },
+    "Url_du_programme": {
+      "x-originalName": "Url du programme",
+      "type": "string",
+      "x-cardinality": 18,
+      "x-refersTo": null
+    },
+    "Source": {
+      "x-originalName": "Source",
+      "type": "string",
+      "x-cardinality": 35,
+      "x-refersTo": null
+    },
+    "Localisation_géographique": {
+      "x-originalName": "Localisation géographique",
+      "type": "string",
+      "x-cardinality": 5,
+      "x-refersTo": null
+    },
+    "Sous-localisation_géographique_français": {
+      "x-originalName": "Sous-localisation géographique français",
+      "type": "string",
+      "x-cardinality": 943,
+      "x-refersTo": null
+    },
+    "Sous-localisation_géographique_anglais": {
+      "x-originalName": "Sous-localisation géographique anglais",
+      "type": "string",
+      "x-cardinality": 976,
+      "x-refersTo": null
+    },
+    "Sous-localisation_géographique_espagnol": {
+      "x-originalName": "Sous-localisation géographique espagnol",
+      "type": "string",
+      "x-cardinality": 1,
+      "x-refersTo": null
+    },
+    "Date_de_création": {
+      "x-originalName": "Date de création",
+      "type": "string",
+      "x-cardinality": 53,
+      "x-refersTo": null,
+      "format": "date"
+    },
+    "Date_de_modification": {
+      "x-originalName": "Date de modification",
+      "type": "string",
+      "x-cardinality": 70,
+      "x-refersTo": null,
+      "format": "date"
+    },
+    "Période_de_validité": {
+      "x-originalName": "Période de validité",
+      "type": "string",
+      "x-cardinality": 49,
+      "x-refersTo": null
+    },
+    "Incertitude": {
+      "x-originalName": "Incertitude",
+      "type": "integer",
+      "x-cardinality": 28,
+      "x-refersTo": null
+    },
+    "Réglementations": {
+      "x-originalName": "Réglementations",
+      "type": "string",
+      "x-cardinality": 6,
+      "x-refersTo": null
+    },
+    "Transparence": {
+      "x-originalName": "Transparence",
+      "type": "number",
+      "x-cardinality": 4,
+      "x-refersTo": null
+    },
+    "Qualité": {
+      "x-originalName": "Qualité",
+      "type": "number",
+      "x-cardinality": 3,
+      "x-refersTo": null
+    },
+    "Qualité_TeR": {
+      "x-originalName": "Qualité TeR",
+      "type": "integer",
+      "x-cardinality": 6,
+      "x-refersTo": null
+    },
+    "Qualité_GR": {
+      "x-originalName": "Qualité GR",
+      "type": "integer",
+      "x-cardinality": 6,
+      "x-refersTo": null
+    },
+    "Qualité_TiR": {
+      "x-originalName": "Qualité TiR",
+      "type": "integer",
+      "x-cardinality": 6,
+      "x-refersTo": null
+    },
+    "Qualité_C": {
+      "x-originalName": "Qualité C",
+      "type": "integer",
+      "x-cardinality": 6,
+      "x-refersTo": null
+    },
+    "Qualité_P": {
+      "x-originalName": "Qualité P",
+      "type": "integer",
+      "x-cardinality": 6,
+      "x-refersTo": null
+    },
+    "Qualité_M": {
+      "x-originalName": "Qualité M",
+      "type": "integer",
+      "x-cardinality": 6,
+      "x-refersTo": null
+    },
+    "Commentaire_français": {
+      "x-originalName": "Commentaire français",
+      "type": "string",
+      "x-cardinality": 465,
+      "x-refersTo": null
+    },
+    "Commentaire_anglais": {
+      "x-originalName": "Commentaire anglais",
+      "type": "string",
+      "x-cardinality": 254,
+      "x-refersTo": null
+    },
+    "Commentaire_espagnol": {
+      "x-originalName": "Commentaire espagnol",
+      "type": "string",
+      "x-cardinality": 0,
+      "x-refersTo": null
+    },
+    "Type_poste": {
+      "x-originalName": "Type poste",
+      "type": "string",
+      "x-cardinality": 15,
+      "x-refersTo": null
+    },
+    "Nom_poste_français": {
+      "x-originalName": "Nom poste français",
+      "type": "string",
+      "x-cardinality": 79,
+      "x-refersTo": null
+    },
+    "Nom_poste_anglais": {
+      "x-originalName": "Nom poste anglais",
+      "type": "string",
+      "x-cardinality": 61,
+      "x-refersTo": null
+    },
+    "Nom_poste_espagnol": {
+      "x-originalName": "Nom poste espagnol",
+      "type": "string",
+      "x-cardinality": 5,
+      "x-refersTo": null
+    },
+    "Total_poste_non_décomposé": {
+      "x-originalName": "Total poste non décomposé",
+      "type": "string",
+      "x-cardinality": 4536,
+      "x-refersTo": null
+    },
+    "CO2f": {
+      "x-originalName": "CO2f",
+      "type": "string",
+      "x-cardinality": 1965,
+      "x-refersTo": null
+    },
+    "CH4f": {
+      "x-originalName": "CH4f",
+      "type": "string",
+      "x-cardinality": 977,
+      "x-refersTo": null
+    },
+    "CH4b": {
+      "x-originalName": "CH4b",
+      "type": "string",
+      "x-cardinality": 86,
+      "x-refersTo": null
+    },
+    "N2O": {
+      "x-originalName": "N2O",
+      "type": "string",
+      "x-cardinality": 697,
+      "x-refersTo": null
+    },
+    "Code_gaz_supplémentaire_1": {
+      "x-originalName": "Code gaz supplémentaire 1",
+      "type": "string",
+      "x-cardinality": 2,
+      "x-refersTo": null
+    },
+    "Valeur_gaz_supplémentaire_1": {
+      "x-originalName": "Valeur gaz supplémentaire 1",
+      "type": "number",
+      "x-cardinality": 44,
+      "x-refersTo": null
+    },
+    "Code_gaz_supplémentaire_2": {
+      "x-originalName": "Code gaz supplémentaire 2",
+      "type": "string",
+      "x-cardinality": 1,
+      "x-refersTo": null
+    },
+    "Valeur_gaz_supplémentaire_2": {
+      "x-originalName": "Valeur gaz supplémentaire 2",
+      "type": "string",
+      "x-cardinality": 12,
+      "x-refersTo": null
+    },
+    "Code_gaz_supplémentaire_3": {
+      "x-originalName": "Code gaz supplémentaire 3",
+      "type": "string",
+      "x-cardinality": 0,
+      "x-refersTo": null
+    },
+    "Valeur_gaz_supplémentaire_3": {
+      "x-originalName": "Valeur gaz supplémentaire 3",
+      "type": "boolean",
+      "x-cardinality": 1,
+      "x-refersTo": null
+    },
+    "Code_gaz_supplémentaire_4": {
+      "x-originalName": "Code gaz supplémentaire 4",
+      "type": "string",
+      "x-cardinality": 0,
+      "x-refersTo": null
+    },
+    "Valeur_gaz_supplémentaire_4": {
+      "x-originalName": "Valeur gaz supplémentaire 4",
+      "type": "boolean",
+      "x-cardinality": 1,
+      "x-refersTo": null
+    },
+    "Code_gaz_supplémentaire_5": {
+      "x-originalName": "Code gaz supplémentaire 5",
+      "type": "string",
+      "x-cardinality": 1,
+      "x-refersTo": null
+    },
+    "Valeur_gaz_supplémentaire_5": {
+      "x-originalName": "Valeur gaz supplémentaire 5",
+      "type": "number",
+      "x-cardinality": 37,
+      "x-refersTo": null
+    },
+    "Autres_GES": {
+      "x-originalName": "Autres GES",
+      "type": "string",
+      "x-cardinality": 91,
+      "x-refersTo": null
+    },
+    "CO2b": {
+      "x-originalName": "CO2b",
+      "type": "string",
+      "x-cardinality": 427,
+      "x-refersTo": null
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# Usual libraries
+pandas
+numpy
+streamlit>=0.70.0
+plotly
+
+# Starter package library
+cookiecutter
+flake8
+pylint
+black
