@@ -84,3 +84,4 @@ target/
 
 # Mypy cache
 .mypy_cache/
+scripts/_poetry_deploy_package.bat
