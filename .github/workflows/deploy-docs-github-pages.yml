@@ -44,4 +44,4 @@ jobs:
 
       # Deploy mkdocs documentation
       - name: Deploy docs
-        run: mkdocs gh-deploy
+        run: poetry run mkdocs gh-deploy
