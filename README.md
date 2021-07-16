@@ -1,6 +1,6 @@
 # Carbonify
 ## Open source library for carbon accounting and Lifecycle analysis
-![](assets/banner_carbonify.png)
+![](docs/assets/banner_carbonify.png)
 
 Manipulating carbon data is complex and requires both climate expertise and the knowledge of the right data source to make valid hypothesis.
 
