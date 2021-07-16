@@ -18,6 +18,10 @@ streamlit = "^0.84.1"
 [tool.poetry.dev-dependencies]
 pywin32 = { version = "^227", markers = "sys_platform == 'win32'" }
 jupyter = "^1.0.0"
+mkdocs = "^1.2.1"
+mkdocs-material = "^7.1.10"
+mknotebooks = "^0.7.0"
+mkdocstrings = "^0.15.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

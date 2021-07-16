@@ -25,7 +25,7 @@ markdown_extensions:
   - toc:
       permalink: true
 repo_name: 'carbonify'
-repo_url: 'https://bitbucket.org/ekimetrics/'
+repo_url: 'https://github.com/ekimetrics/'
 
 extra_css:
   - ./stylesheets/extra.css
@@ -38,17 +38,13 @@ nav:
     - index.md
     - home/installation.md
     - Quickstart: home/quickstart.md
-    - FAQ: home/faq.md
     - home/releases.md
-    -  Ethics checklist: home/ethics.md
+
   - Tutorials:
     - Quickstart: tutorials/quickstart.md
     - tutorials/notebook-test.ipynb
   - Library:
     - library/utils.md
-  - Best practices:
-    - About: best-practices/about.md
-    - Conventions: best-practices/conventions.md
 
 plugins:
   - search
