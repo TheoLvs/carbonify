@@ -22,6 +22,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    
+  
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -29,12 +31,17 @@ jobs:
           python-version: '3.7.5' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
 
-      # Runs a single command using the runners shell
+      # Install Poetry for dependency & env management
+      - name: Python Poetry Action
+        uses: abatilo/actions-poetry@v2.1.0
+
+      # Install dependencies using poetry
       - name: Install requirements
-        run: pip install -r requirements-docs.txt
+        run: poetry install
 
       - name: Pull last version before deploy
         run: git pull
 
+      # Deploy mkdocs documentation
       - name: Deploy docs
         run: mkdocs gh-deploy
