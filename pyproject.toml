@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Open source library for carbon accounting and Lifecycle analysis"
 authors = ["Theo Alves Da Costa <theo.alvesdacosta@ekimetrics.com>"]
 license = "MIT"
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
