@@ -21,10 +21,6 @@
 ```
 
 
-## Branch strategy
-TBD
-
-
 ## TODO 
 - Search how indexation techniques work
 - See what encoding is required ("oeuf" is not converted)
@@ -44,14 +40,16 @@ TBD
 
 ## References
 
-### EDA components
-- https://blog.streamlit.io/the-streamlit-agraph-component/
-- https://github.com/ChrisChross/streamlit-agraph
-
 ### Base Carbone
+- [Base Carbone](https://data.ademe.fr/datasets/base-carbone(r)) by ADEME - [Documentation](https://www.bilans-ges.ademe.fr/fr/accueil/contenu/index/page/presentation/siGras/0)
+- [Agribalyse](https://data.ademe.fr/datasets/agribalyse-synthese) by ADEME - [Documentation](https://doc.agribalyse.fr/documentation/conditions-dusage-des-donnees)
 - https://www.hellocarbo.com/blog/calculer/base-carbone/
 
 ### LCA 
+- [CarbonFact.co](https://carbonfact.co/)
 - https://www.carbonify.app/products/apple-iphone-12-us-64gb
 
 
+### EDA components
+- https://blog.streamlit.io/the-streamlit-agraph-component/
+- https://github.com/ChrisChross/streamlit-agraph

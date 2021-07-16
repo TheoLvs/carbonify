@@ -6,13 +6,13 @@ class BaseCarbone:
     def __init__(self,path,lang = "français"):
 
         self.lang = lang
-        self.data,self._category_cols = self._prepare_data(lang)
+        self.data,self._category_cols = self._prepare_data(path,lang)
 
     @property
     def categories(self):
         return self.data[self._category_cols]
 
-    def _prepare_data(self,lang):
+    def _prepare_data(self,path,lang):
 
         def clean_text_split(text):
             tokens = wordpunct_tokenize(text)
@@ -20,7 +20,7 @@ class BaseCarbone:
             return tokens
 
         # Reading and filtering columns in other languages
-        data = pd.read_csv("../data/base_carbone.csv",sep = ";",encoding = "latin1",low_memory = False)
+        data = pd.read_csv(path,sep = ";",encoding = "latin1",low_memory = False)
         data = data[[x for x in data.columns if "espagnol" not in x and "anglais" not in x]]
 
         # Rename columns to more user friendly col names 
@@ -74,23 +74,22 @@ class BaseCarbone:
 
         return data,category_cols
 
-    def show_data(self,data = None,kind = "treemap",detailed_path = False,color_by_emissions=True):
+    def show_data(self,data = None,kind = "treemap",detailed_path = False,color_by_emissions=True,**kwargs):
 
         assert kind in ["treemap","sunburst","icicle"]
 
         # Take all data if not provided
         if data is None:
             data = self.data
-        results = data.copy()
 
         # Remove category cols with all NaNs
-        all_nans = results[self._category_cols].isnull().sum() == len(results)
+        all_nans = data[self._category_cols].isnull().sum() == len(data)
         all_nans = all_nans[all_nans].index.tolist()
-        results = results.drop(columns = all_nans)
+        data = data.drop(columns = all_nans)
         category_cols = [x for x in self._category_cols if x not in all_nans]
 
         # Fill NaN for visualization
-        results = results.fillna(" ")
+        data = data.fillna(" ")
 
         if detailed_path:
             path = [px.Constant("all")] + category_cols + ["name_base","name_attribute","name_attribute2","geography","subgeography"]
@@ -110,29 +109,31 @@ class BaseCarbone:
 
         # Treemap visualization (also called Mondrian)
         if kind == "treemap":
-            fig = px.treemap(results,path = path,maxdepth = 6,**params)
-            fig.update_traces(
-                root_color="lightgrey",
-                hovertemplate="<b>%{label}</b> - Count: %{value}<br>Emissions: %{color}"
-            )
+            fig = px.treemap(data,path = path,maxdepth = 6,**params,**kwargs)
+            
+            if color_by_emissions:
+                fig.update_traces(
+                    root_color="lightgrey",
+                    hovertemplate="<b>%{label}</b> - Count: %{value}<br>Emissions: %{color}"
+                )
 
             return fig
 
         # Sunburst visualization (circular structure chart)
         elif kind == "sunburst":
-            fig = px.sunburst(results,path = path[1:],maxdepth = 4,**params)
+            fig = px.sunburst(data,path = path[1:],maxdepth = 4,**params,**kwargs)
             return fig
 
         # icicle visualization (rectangular structure chart)
         elif kind == "icicle":
-            fig = px.icicle(results,path = path[1:],maxdepth = 4,**params)
+            fig = px.icicle(data,path = path[1:],maxdepth = 4,**params,**kwargs)
             fig.update_traces(root_color="lightgrey")
             return fig 
 
 
     def search(self,query,kind = None,without_split = True,color_by_emissions = True,**kwargs):
 
-        results = self.data.loc[self.data["text_split"].map(lambda x : query in x)]
+        results = self.data.loc[self.data["text_split"].map(lambda x : query in x)].copy()
 
         if without_split:
             results = results.query("row_type=='Elément'")
@@ -141,12 +142,9 @@ class BaseCarbone:
         if kind is None:
             return results
         else:
-            fig = self.show_data(data = results,kind = kind,detailed_path = True,color_by_emissions = color_by_emissions,**kwargs)
+            fig = self.show_data(data = results.copy(),kind = kind,detailed_path = True,color_by_emissions = color_by_emissions,**kwargs)
             fig.update_layout(title=f"Base Carbone results for query='{query}'")
             return results,fig
-
-
-            
             
 
     def search_word(self,query):
