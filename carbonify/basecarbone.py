@@ -99,6 +99,7 @@ class BaseCarbone:
         params = {
             # "values":"emissions",
             "hover_data":["emissions","unit"],
+            "custom_data":["element_id","emissions","unit"],
         }
 
         if color_by_emissions:
@@ -114,7 +115,7 @@ class BaseCarbone:
             if color_by_emissions:
                 fig.update_traces(
                     root_color="lightgrey",
-                    hovertemplate="<b>%{label}</b> - Count: %{value}<br>Emissions: %{color}"
+                    hovertemplate="<b>%{label}</b> - Count: %{value}<br>Emissions: %{color:.5f} %{customdata[2]}<br>Id: %{customdata[0]}"
                 )
 
             return fig
@@ -151,4 +152,95 @@ class BaseCarbone:
         return self.data.loc[self.data["text"].str.contains(query)]
 
 
-    # def show_treemap(self,)
+    def search_by_id(self,element_id,return_value = False,print_unit = True):
+        results = self.data.query(f"element_id=={element_id} and row_type=='Elément'")
+        assert len(results) == 1
+        results = results.iloc[0]
+
+        name = results["full_name"]
+        value = results["emissions"]
+        unit = results["unit"]
+
+        if return_value:
+            if print_unit: print(results["unit"])
+            return results["emissions"]
+        else:
+            return results[["full_name","emissions","unit"]].to_dict()
+
+    def compare(self,element_id,with_id,raise_unit_error = True,metadata = True):
+
+        element = self.search_by_id(element_id,return_value = False)
+        with_element = self.search_by_id(with_id,return_value = False)
+
+        if element["unit"] != with_element["unit"]:
+            message = f"Warning - First element unit is {element['unit']} and second one is {with_element['unit']}"
+            if raise_unit_error:
+                raise Exception(message)
+            else:
+                print(message)
+
+        comparison = element["emissions"] / with_element["emissions"]
+
+        if metadata:
+            return comparison,element,with_element
+        else:
+            return comparison
+
+
+
+    def evaluate_transportation_by_plane(self,distance,condensation_trails = True,round_trip = False,cargo = False):
+        """
+        HYPOTHESIS 
+        
+        > Long and short courriers
+        - Les courts courriers ont un rayon d’action d’environ 500 kilomètres (ex : avions à hélices) : il s'agit de liaisons entre villes françaises (métropole) par exemple.
+        - Les moyens courriers ont un rayon d’action de 5000 kilomètres (Pour Air France, ils correspondent aux vols desservant l’Europe et l’Afrique du Nord). Exemple : A320.
+        - Les longs courriers sont des avions de ligne pouvant voler sur 15 000 kilomètres de distance. Il s'agit de vols transocéaniques par exemple. Exemple : A340.
+        Source https://www.bilans-ges.ademe.fr/forum/viewtopic.php?t=4192
+
+        > Trails 
+        https://www.carbone4.com/trainees-de-condensation-impact-climat
+
+        > Cargo
+        We assume big cargos above 100T
+        We also suppose cargos are full with 100T load
+        """
+
+        # Ids in the Base Carbone for plane transportation
+        if not cargo:
+            SHORT_IDS = (28130,28129)
+            MID_IDS = (28132,28131)
+            LONG_IDS = (28134,28133)
+        else:
+            SHORT_IDS = (28065,28066)
+            MID_IDS = (28063,28064)            
+            LONG_IDS = (28055,28056)
+
+        # Condensation trails filter
+        condensation_idx = 0 if condensation_trails else 1
+
+        # Find the right id for short, medium and long trips
+        if distance < 500:
+            element_id = SHORT_IDS[condensation_idx]
+        elif distance < 5000:
+            element_id = MID_IDS[condensation_idx]
+        else:
+            element_id = LONG_IDS[condensation_idx]
+
+        # Prepare emissions ratio
+        emissions_ratio = self.search_by_id(element_id)["emissions"]
+
+        # Compute final emissions
+        emissions = emissions_ratio * distance
+
+        # Add round trip bonus
+        if round_trip:
+            emissions *= 2
+        
+        return emissions
+
+
+    def evaluate_transportation_by_train(self,distance,tgv = True):
+        pass
+
+        

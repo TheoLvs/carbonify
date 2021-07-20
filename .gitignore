@@ -86,3 +86,4 @@ target/
 # Mypy cache
 .mypy_cache/
 scripts/_poetry_deploy_package.bat
+notebooks/20210720 - Chloé's analysis.ipynb
